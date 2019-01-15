@@ -36,7 +36,7 @@ export default class BaseError extends Error {
    *
    * @example [code=user_not_found] user was not found in database
    */
-  public message: string;
+  public message: string = "";
 
   /**
    * Message that user passed into error
@@ -77,7 +77,7 @@ export default class BaseError extends Error {
   /**
    * Default message if user does not provide one
    */
-  public defaultUserMessage: string;
+  public defaultUserMessage: string = "";
 
   /** Creates new error */
   constructor(code: string, ...args: Array<Error | Object | string>) {

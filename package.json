@@ -1,6 +1,6 @@
 {
   "name": "errorjs",
-  "version": "0.9.1",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/errorjs",
@@ -13,7 +13,7 @@
   "author": "Jaka Hudoklin <jakahudoklin@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/offlinehacker/errorjs"
+    "url": "https://srvpl-svil03.pluservice.local:3000/s.andreani/errorjs.git"
   },
   "license": "MIT",
   "engines": {
@@ -30,9 +30,11 @@
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "validate-commit-msg"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -93,14 +95,17 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "semantic-release": "^8.0.3",
+    "semantic-release": "^15.13.3",
     "ts-jest": "^21.0.0",
     "ts-node": "^3.0.6",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.1.0",
     "tslint-config-standard": "^6.0.0",
-    "typedoc": "^0.8.0",
-    "typescript": "^2.6.0-dev.20171007",
+    "typedoc": "^0.14.1",
+    "typescript": "~3.1.6",
     "validate-commit-msg": "^2.12.2"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
